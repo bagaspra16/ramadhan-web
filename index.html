@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Mubarak Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/images/ramadhan.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        html { 
+            scroll-behavior: smooth; 
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(40px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes backgroundPattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Landing Page Styles */
+        #landing-page {
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1571289461381-6aedf3ac9c3f?fit=crop&w=1920&h=1080&q=80');
+            background-size: cover;
+            background-position: center;
+            transition: all 1.2s ease-in-out;
+        }
+
+        #landing-page.fade-out {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+
+        /* Background Styles */
+        .section-bg {
+            background-image: 
+                linear-gradient(45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 0, 0.05)),
+                linear-gradient(-45deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 0, 0.05));
+            background-size: 200% 200%;
+            animation: backgroundPattern 10s linear infinite;
+        }
+
+        /* Sidebar Hover Effects */
+        .nav-btn.active {
+            background-color: #EAB308;
+            color: black;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-900 to-blue-700 text-white">
+    <!-- Landing Page -->
+    <div id="landing-page" 
+    class="fixed inset-0 z-50 flex flex-col items-center justify-center text-center p-6"
+    style="background-image: url('images/background.jpg'); background-size: cover; background-position: center;">
+        <img src="images/ramadhan.png" 
+            alt="Mosque Emoji" class="w-48 h-48 mb-6 animate-bounce">
+        <h1 class="text-5xl font-bold mb-4 text-yellow-300">Ramadan Mubarak</h1>
+        <p class="text-xl mb-8 text-white">Sambut Bulan Suci Ramadan dengan Penuh Keberkahan</p>
+        <button id="open-invitation" 
+                class="bg-yellow-500 text-black px-8 py-3 rounded-lg shadow-lg hover:bg-yellow-600 
+                       flex items-center transition-all duration-300 ease-in-out 
+                       transform hover:scale-105 active:scale-95">
+                       <i class="ri-mail-open-line mr-2"></i> Buka Undangan
+       </button>
+    </div>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-content" class="hidden ml-20">
+        <!-- Sidebar Navigation -->
+        <div id="sidebar" class="fixed left-0 top-0 h-full w-20 bg-black bg-opacity-30 flex flex-col items-center py-6 z-40">
+            <div class="text-center mb-6 text-xl font-bold">
+                <img src="images/ramadhan.png" class="w-14 h-14">
+            </div>
+            
+            <div id="nav-buttons" class="flex flex-col space-y-4">
+                <button data-section="home" class="nav-btn p-3 rounded-full hover:bg-white hover:bg-opacity-20">
+                    <i class="ri-home-line text-2xl"></i>
+                </button>
+                <button data-section="invitation" class="nav-btn p-3 rounded-full hover:bg-white hover:bg-opacity-20">
+                    <i class="ri-calendar-event-line text-2xl"></i>
+                </button>
+                <button data-section="gallery" class="nav-btn p-3 rounded-full hover:bg-white hover:bg-opacity-20">
+                    <i class="ri-image-line text-2xl"></i>
+                </button>
+                <button data-section="donation" class="nav-btn p-3 rounded-full hover:bg-white hover:bg-opacity-20">
+                    <i class="ri-gift-line text-2xl"></i>
+                </button>
+            </div>
+
+            <button id="audio-toggle" class="mt-auto mb-6 p-3 rounded-full hover:bg-white hover:bg-opacity-20">
+                <i class="ri-music-line text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Main Sections -->
+        <div>
+            <!-- Home Section -->
+            <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center p-6 section-bg reveal relative">
+                <!-- Sticker/Foto di Kiri Atas -->
+                <div class="absolute top-0 left-0 mt-8 ml-8">
+                    <img src="images/lantern.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Bawah -->
+                <div class="absolute bottom-0 right-0 mb-8 mr-8">
+                    <img src="images/ketupat.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kiri Bawah -->
+                <div class="absolute bottom-0 left-0 mb-8 ml-8">
+                    <img src="images/fasting.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Atas -->
+                <div class="absolute top-0 right-0 mt-8 mr-8">
+                    <img src="images/cookies-jar.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Konten Utama -->
+                <img src="images/shalat.png" alt="Crescent Moon" class="w-64 h-64 mb-6">
+                <h1 class="text-5xl font-bold mb-4 text-yellow-300">Ramadhan Kareem</h1>
+                <p class="text-xl mb-8 text-white max-w-3xl mx-auto">
+                    Selamat datang di bulan suci Ramadan, bulan penuh berkah dan ampunan. 
+                    Mari kita sambut Ramadan dengan hati yang tulus dan penuh syukur. 
+                    Semoga ibadah puasa kita diterima dan membawa kebahagiaan bagi kita semua.
+                </p>
+            </section>
+
+            <!-- Invitation Section -->
+            <section id="invitation" class="min-h-screen flex flex-col justify-center items-center text-center p-6 section-bg reveal relative">        
+
+                <!-- Sticker/Foto di Kiri Bawah -->
+                <div class="absolute bottom-0 left-0 mb-8 ml-8">
+                    <img src="images/teapot.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Atas -->
+                <div class="absolute top-0 right-0 mt-8 mr-8">
+                    <img src="images/bedug.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kiri Atas -->
+                <div class="absolute top-0 left-0 mt-8 ml-8">
+                    <img src="images/ketupat.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Bawah -->
+                <div class="absolute bottom-0 right-0 mb-8 mr-8">
+                    <img src="images/lantern.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                
+                <img src="images/dates.png" 
+                    alt="Clock" class="w-64 h-64 mb-6">
+                <h2 class="text-5xl font-bold mb-6 text-yellow-300">Undangan Buka Puasa Bersama</h2>
+                <p class="text-xl mb-8 text-white max-w-3xl mx-auto">Mari kita ramaikan momen penuh berkah ini dengan bersama-sama menyantap hidangan berbuka puasa. 
+                    Rasakan kehangatan kebersamaan dan kekuatan silaturahmi dalam suasana yang penuh keikhlasan dan keceriaan.</p>
+                <div class="text-lg mb-8 text-gray-200">
+                    <p><strong>Tanggal:</strong> 15 Ramadan 1445 H (Sabtu, 30 Maret 2024)</p>
+                    <p><strong>Waktu:</strong> 17:30 WIB - Selesai</p>
+                    <p><strong>Lokasi:</strong> Masjid Raya Al-Muhajirin, Jl. Kebersamaan No. 123, Jakarta</p>
+                    <p><strong>Dress Code:</strong> Baju Koko Putih untuk pria dan Gamis Putih untuk wanita</p>
+                    <p><strong>Acara:</strong> Buka Puasa Bersama, Sholat Maghrib Berjamaah, Tausiyah oleh Ust. Ahmad Al-Farouq, dan Santap Malam</p>
+                </div>
+                <button onclick="openModal('rsvp')" class="bg-yellow-500 text-black px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-600 transform hover:scale-105 transition-transform">
+                    <i class="ri-user-add-line mr-2"></i> Konfirmasi Kehadiran
+                </button>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="min-h-screen flex flex-col justify-center items-center text-center p-6 section-bg reveal relative">
+
+                <!-- Sticker/Foto di Kiri Bawah -->
+                <div class="absolute bottom-0 left-0 mb-8 ml-8">
+                    <img src="images/lantern.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Atas -->
+                <div class="absolute top-0 right-0 mt-8 mr-8">
+                    <img src="images/ketupat.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kiri Atas -->
+                <div class="absolute top-0 left-0 mt-8 ml-8">
+                    <img src="images/quran.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Bawah -->
+                <div class="absolute bottom-0 right-0 mb-8 mr-8">
+                    <img src="images/iqra.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <img src="images/fasting-meal.png" 
+                     alt="Camera" class="w-64 h-64 mb-6">
+                <h2 class="text-5xl font-bold mb-8 text-yellow-300">Galeri Ramadhan</h2>
+                <div class="grid grid-cols-3 gap-6">
+                    <img src="/images/muslimah.png" 
+                         alt="Ramadan Gallery 1" class="w-64 h-64 rounded-lg shadow-lg hover:scale-105 transition-transform">
+                    <img src="/images/muslims.png" 
+                         alt="Ramadan Gallery 2" class="w-64 h-64 rounded-lg shadow-lg hover:scale-105 transition-transform">
+                    <img src="images/wishes.png" 
+                         alt="Ramadan Gallery 3" class="w-64 h-64 rounded-lg shadow-lg hover:scale-105 transition-transform">
+                </div>
+            </section>
+
+            <!-- Donation Section -->
+            <section id="donation" class="min-h-screen flex flex-col justify-center items-center text-center p-6 section-bg reveal relative">
+
+                <!-- Sticker/Foto di Kiri Atas -->
+                <div class="absolute top-0 left-0 mt-8 ml-8">
+                    <img src="images/lantern.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Bawah -->
+                <div class="absolute bottom-0 right-0 mb-8 mr-8">
+                    <img src="images/ketupat.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kiri Bawah -->
+                <div class="absolute bottom-0 left-0 mb-8 ml-8">
+                    <img src="images/infaq.png" alt="Sticker Kiri" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <!-- Sticker/Foto di Kanan Atas -->
+                <div class="absolute top-0 right-0 mt-8 mr-8">
+                    <img src="images/mecca.png" alt="Sticker Kanan" class="w-32 h-32 animate-pulse">
+                </div>
+
+                <img src="images/bless.png" 
+                     alt="Gift" class="w-64 h-64 mb-6">
+                <h2 class="text-5xl font-bold mb-6 text-yellow-300">Donasi & Kegiatan</h2>
+                <p class="text-xl mb-8">Bantu sesama dengan berbagi rezeki untuk membantu dana acara buka bersama.</p>
+                <button onclick="openModal('donation')" class="bg-yellow-500 text-black px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-600 transform hover:scale-105 transition-transform">
+                    <i class="ri-hand-heart-line mr-2"></i> Donasi Sekarang
+                </button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center">
+        <div id="modal-content" class="bg-white text-gray-800 p-8 rounded-lg w-96 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+            
+            <div id="rsvp-modal" class="hidden">
+                <h2 class="text-2xl font-bold mb-4">RSVP Buka Puasa</h2>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Nama Lengkap" class="w-full p-2 border rounded">
+                    <input type="number" placeholder="Jumlah Peserta" class="w-full p-2 border rounded">
+                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">
+                        Konfirmasi
+                    </button>
+                </form>
+            </div>
+
+            <div id="donation-modal" class="hidden">
+                <h2 class="text-2xl font-bold mb-4">Donasi Kegiatan</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span>Jenis Bantuan</span>
+                        <select class="border rounded p-1">
+                            <option>Infaq</option>
+                            <option>Sodakoh</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>Jumlah</span>
+                        <input type="number" class="w-20 p-1 border rounded" value="1">
+                    </div>
+                    <button class="w-full bg-green-500 text-white p-2 rounded">
+                        Donasi Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="background-audio" loop>
+        <source src="/music/mbbj.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Landing Page Logic
+        const landingPage = document.getElementById('landing-page');
+        const mainContent = document.getElementById('main-content');
+        const openInvitationBtn = document.getElementById('open-invitation');
+        const audio = document.getElementById('background-audio');
+        const sectionContents = document.querySelectorAll('.section-content');
+
+        // Enhanced Opening Animation
+        openInvitationBtn.addEventListener('click', () => {
+            // Fade out landing page
+            landingPage.classList.add('fade-out');
+
+            // After a short delay, hide landing page and show main content
+            setTimeout(() => {
+                landingPage.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                
+                // Trigger main content transition
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                }, 50);
+
+                // Trigger section content animations sequentially
+                sectionContents.forEach((content, index) => {
+                    setTimeout(() => {
+                        content.classList.add('active');
+                    }, 500 * (index + 1));
+                });
+
+                // Start audio
+                audio.play();
+                document.getElementById('audio-toggle').innerHTML = '<i class="ri-pause-line text-2xl"></i>';
+            }, 1000);
+        });
+
+        // Navigation Highlights
+        const sections = document.querySelectorAll('section');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active state from all buttons
+                    navButtons.forEach(btn => {
+                        btn.classList.remove('bg-yellow-500', 'text-black');
+                    });
+
+                    // Add active state to corresponding button
+                    const activeButton = document.querySelector(`[data-section="${entry.target.id}"]`);
+                    if (activeButton) {
+                        activeButton.classList.add('bg-yellow-500', 'text-black');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        sections.forEach(section => observer.observe(section));
+
+        // Navigation Scroll
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const scrollReveal = () => {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const revealTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                } else {
+                    element.classList.remove('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', scrollReveal);
+        scrollReveal(); // Initial call
+
+        // Audio Toggle
+        const audioToggle = document.getElementById('audio-toggle');
+        
+        audioToggle.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                audioToggle.innerHTML = '<i class="ri-pause-line text-2xl"></i>';
+            } else {
+                audio.pause();
+                audioToggle.innerHTML = '<i class="ri-music-line text-2xl"></i>';
+            }
+        });
+
+        // Modal Functions
+        function openModal(type) {
+            const modalOverlay = document.getElementById('modal-overlay');
+            const rsvpModal = document.getElementById('rsvp-modal');
+            const donationModal = document.getElementById('donation-modal');
+
+            // Hide all modals first
+            rsvpModal.classList.add('hidden');
+            donationModal.classList.add('hidden');
+
+            // Show selected modal
+            if (type === 'rsvp') {
+                rsvpModal.classList.remove('hidden');
+            } else if (type === 'donation') {
+                donationModal.classList.remove('hidden');
+            }
+
+            modalOverlay.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modalOverlay = document.getElementById('modal-overlay');
+            modalOverlay.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
